@@ -7,5 +7,8 @@ mix
   .options({ processCssUrls: false })
   .copy('src/index.html', 'dist')
   .copyDirectory('src/assets/images', 'dist/images')
-  .browserSync('frontend-boilerplate.localhost')
+  .browserSync({
+      proxy: "frontend-boilerplate.test",
+      files: ["src/**/*.html"]
+  })
   .setPublicPath('dist');
